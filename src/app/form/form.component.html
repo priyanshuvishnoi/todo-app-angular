@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    [(ngModel)]="inputText"
+    [ngModelOptions]="{ standalone: true }"
+    #input
+  />
+  <button class="todo-button" type="submit">
+    <i class="fas fa-plus-square"></i>
+  </button>
+  <div class="select">
+    <select
+      name="todos"
+      class="filter-todo"
+      [(ngModel)]="filter"
+      (change)="onFilter()"
+    >
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="uncompleted">Uncompleted</option>
+    </select>
+  </div>
+</form>

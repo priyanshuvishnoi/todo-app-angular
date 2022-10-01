@@ -1,0 +1,14 @@
+<div class="todo" [ngClass]="{ completed: todo.completed }">
+  <li>
+    {{ todo.text }}
+  </li>
+  <button class="complete-btn" (click)="onComplete()">
+    <i class="fas fa-check"></i>
+  </button>
+  <button class="edit-btn" (click)="onEdit()">
+    <i class="fas fa-edit"></i>
+  </button>
+  <button class="trash-btn" (click)="onDelete()">
+    <i class="fas fa-trash"></i>
+  </button>
+</div>
