@@ -1,11 +1,9 @@
 pipeline {
     agent { label 'docker-agent-1' }
 
-    options([
-        pipelineTriggers([
-            githubPush()
-        ])
-    ])
+    triggers {
+        githubPush()
+    }
   
     environment {
         SONAR_URL = "http://192.168.1.101:9000"
@@ -15,6 +13,12 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+      
         stage('SonarQube Scan') {
             steps {
                 script {
