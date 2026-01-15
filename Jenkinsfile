@@ -1,6 +1,12 @@
 pipeline {
     agent { label 'docker-agent-1' }
 
+    properties([
+        pipelineTriggers([
+            githubPush()
+        ])
+    ])
+  
     environment {
         SONAR_URL = "http://192.168.1.101:9000"
         // Ensure this ID matches the credential ID you created in Jenkins
