@@ -19,13 +19,13 @@ pipeline {
                       -e SONAR_HOST_URL=${SONAR_URL} \
                       -e SONAR_TOKEN=${SONAR_TOKEN} \
                       sonarsource/sonar-scanner-cli \
-                      -Dsonar.projectKey=${APP_NAME}-${BRANCH_NAME} \
+                      -Dsonar.projectKey=${APP_NAME} \
+                      -Dsonar.branch.name=${BRANCH_NAME} \
                       -Dsonar.sources=src
                     """
                 }
             }
         }
-
         stage('Build & Deploy (Main Only)') {
             when {
                 branch 'master'
