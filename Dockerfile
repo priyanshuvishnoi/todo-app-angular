@@ -9,6 +9,6 @@ RUN npm run build --configuration=production
 # Stage 2: Serve the app with Nginx
 FROM nginx:alpine
 # Replace 'todo-app-angular' with your actual dist folder name
-COPY --from=build /app/dist/todo-app-angular /usr/share/nginx/html
+COPY --from=build /app/dist/todo-app /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
