@@ -28,7 +28,7 @@ pipeline {
 
         stage('Build & Deploy (Main Only)') {
             when {
-                branch 'main'
+                branch 'master'
             }
             steps {
                 sh "docker build -t ${APP_NAME}:latest ."
@@ -39,7 +39,7 @@ pipeline {
         
         stage('Build Test (Other Branches)') {
             when {
-                not { branch 'main' }
+                not { branch 'master' }
             }
             steps {
                 echo "Testing build for branch ${BRANCH_NAME}..."
